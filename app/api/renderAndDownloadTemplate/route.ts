@@ -17,6 +17,7 @@ export async function POST(request: Request) {
         Accept: "text/html",
       },
       body: JSON.stringify(config),
+      mode: 'cors',
     })
 
     if (!response.ok) {

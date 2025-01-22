@@ -23,7 +23,9 @@ export default function Home() {
   const fetchEmailLayout = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`${API_URL}/api/getEmailLayout`);
+      const response = await fetch(`${API_URL}/api/getEmailLayout`, {
+        mode: "cors",
+      });
       if (!response.ok) {
         throw new Error(`Error fetching email layout: ${response.status}`);
       }
@@ -45,7 +47,9 @@ export default function Home() {
   const fetchSavedConfigs = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`${API_URL}/api/getEmailConfigs`);
+      const response = await fetch(`${API_URL}/api/getEmailConfigs`, {
+        mode: "cors",
+      });
       if (!response.ok) {
         throw new Error("Error fetching saved configurations");
       }
@@ -113,6 +117,7 @@ export default function Home() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(emailConfig),
+        mode: "cors",
       });
 
       if (!response.ok) throw new Error("Failed to save email configuration");
@@ -144,6 +149,7 @@ export default function Home() {
           Accept: "text/html",
         },
         body: JSON.stringify(emailConfig),
+        mode: "cors",
       });
 
       if (!response.ok) {
