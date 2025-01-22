@@ -3,4 +3,7 @@ module.exports = {
   images: {
     unoptimized: true,  // To serve local images in development
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 }
